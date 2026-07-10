@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#030308" />
+    <title>Goon Link</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="cover">
+      <div class="aura" aria-hidden="true">
+        <span class="aura__blue"></span>
+        <span class="aura__violet"></span>
+        <span class="aura__red"></span>
+      </div>
+      <h1>GOON LINK</h1>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+    background: #030308;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+  }
+
+  body {
+    overflow: hidden;
+    background: #030308;
+  }
+
+  .cover {
+    position: relative;
+    display: grid;
+    min-height: 100svh;
+    place-items: center;
+    isolation: isolate;
+    overflow: hidden;
+    background: #030308;
+  }
+
+  .aura {
+    position: absolute;
+    inset: -24vmax;
+    z-index: 0;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 50%, #10172f 0%, #05060e 44%, #030308 75%);
+  }
+
+  .aura span {
+    position: absolute;
+    display: block;
+    width: 58vmax;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    filter: blur(72px);
+    opacity: 0.82;
+    will-change: transform, opacity;
+  }
+
+  .aura__blue {
+    top: 3%;
+    left: 5%;
+    background: #173a9b;
+    animation: drift-blue 31s ease-in-out infinite alternate;
+  }
+
+  .aura__violet {
+    right: 2%;
+    bottom: -5%;
+    background: #442379;
+    opacity: 0.56 !important;
+    animation: drift-violet 37s ease-in-out infinite alternate;
+  }
+
+  .aura__red {
+    top: 14%;
+    right: 10%;
+    width: 43vmax !important;
+    background: #8a153e;
+    opacity: 0.47 !important;
+    animation: drift-red 27s ease-in-out infinite alternate;
+  }
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0 0.1em 0.11em;
+    color: #eeece5;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(3.65rem, 15.5vw, 16rem);
+    font-weight: 400;
+    letter-spacing: -0.07em;
+    line-height: 0.78;
+    text-align: center;
+    text-shadow: 0 0.04em 0.24em rgba(0, 0, 0, 0.38);
+    transform: translateY(-0.04em);
+  }
+
+  @keyframes drift-blue {
+    from {
+      transform: translate3d(-10%, -4%, 0) scale(0.92);
+    }
+
+    to {
+      transform: translate3d(18%, 16%, 0) scale(1.18);
+    }
+  }
+
+  @keyframes drift-violet {
+    from {
+      transform: translate3d(10%, 12%, 0) scale(1.1);
+    }
+
+    to {
+      transform: translate3d(-20%, -11%, 0) scale(0.88);
+    }
+  }
+
+  @keyframes drift-red {
+    from {
+      transform: translate3d(12%, -15%, 0) scale(0.84);
+      opacity: 0.31;
+    }
+
+    to {
+      transform: translate3d(-13%, 20%, 0) scale(1.15);
+      opacity: 0.58;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aura span {
+      animation: none;
+    }
+  }
+</style>
