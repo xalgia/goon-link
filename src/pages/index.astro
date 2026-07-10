@@ -8,18 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <main class="cover">
-      <div class="aura" aria-hidden="true">
-        <span class="aura__blue"></span>
-        <span class="aura__violet"></span>
-        <span class="aura__red"></span>
-      </div>
-      <h1>GOON LINK</h1>
+      <section class="broadcast" aria-labelledby="site-title">
+        <img
+          class="mark"
+          src="/images/goon-link-mark.png"
+          width="1168"
+          height="1371"
+          alt="Goon Link"
+        />
+        <h1 id="site-title">GOON LINK</h1>
+        <p class="tagline">Starlink for Gooners.</p>
+        <p class="credit">
+          by the ‘elon musk for gooners’, and the creator of the wank bank app, u/keyraise.
+        </p>
+        <div class="pricing" aria-label="Lifetime pricing">
+          <p class="price price--original"><s>25 USD lifetime.</s></p>
+          <p class="price price--offer">temporarily <strong>5 USD Lifetime.</strong></p>
+        </div>
+        <a class="request-access" href="mailto:invites@twba.mailer.me">Request access</a>
+      </section>
     </main>
   </body>
 </html>
@@ -42,115 +55,194 @@
   }
 
   body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     background: #030308;
   }
 
   .cover {
     position: relative;
-    display: grid;
     min-height: 100svh;
-    place-items: center;
-    isolation: isolate;
-    overflow: hidden;
-    background: #030308;
+    overflow-x: clip;
+    background-color: #030308;
+    background-image:
+      radial-gradient(ellipse 66% 72% at 2% -4%, rgba(24, 57, 154, 0.78) 0%, rgba(10, 23, 68, 0.46) 35%, transparent 73%),
+      radial-gradient(ellipse 59% 72% at 104% 77%, rgba(125, 17, 59, 0.54) 0%, rgba(66, 16, 57, 0.22) 39%, transparent 73%),
+      radial-gradient(ellipse 60% 54% at 52% 100%, rgba(36, 28, 91, 0.42) 0%, transparent 72%),
+      linear-gradient(135deg, #050713 0%, #030308 52%, #09030a 100%);
+    background-position: 0% 0%, 100% 100%, 50% 100%, 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 112% 112%, 118% 118%, 108% 108%, 100% 100%;
+    animation: aura-shift 32s ease-in-out infinite alternate;
   }
 
-  .aura {
-    position: absolute;
-    inset: -24vmax;
-    z-index: 0;
-    overflow: hidden;
-    background:
-      radial-gradient(ellipse at 50% 50%, #10172f 0%, #05060e 44%, #030308 75%);
+  .broadcast {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: clamp(2.75rem, 6vw, 6rem) 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform: translateZ(0);
   }
 
-  .aura span {
-    position: absolute;
-    display: block;
-    width: 58vmax;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    filter: blur(72px);
-    opacity: 0.82;
-    will-change: transform, opacity;
-  }
-
-  .aura__blue {
-    top: 3%;
-    left: 5%;
-    background: #173a9b;
-    animation: drift-blue 31s ease-in-out infinite alternate;
-  }
-
-  .aura__violet {
-    right: 2%;
-    bottom: -5%;
-    background: #442379;
-    opacity: 0.56 !important;
-    animation: drift-violet 37s ease-in-out infinite alternate;
-  }
-
-  .aura__red {
-    top: 14%;
-    right: 10%;
-    width: 43vmax !important;
-    background: #8a153e;
-    opacity: 0.47 !important;
-    animation: drift-red 27s ease-in-out infinite alternate;
+  .mark {
+    width: clamp(5.65rem, 10.5vw, 9.5rem);
+    height: auto;
+    margin-bottom: clamp(1.2rem, 2vw, 1.85rem);
+    filter: drop-shadow(0 0.7rem 1.5rem rgba(0, 0, 0, 0.42));
   }
 
   h1 {
     position: relative;
-    z-index: 1;
     margin: 0;
-    padding: 0 0.1em 0.11em;
+    padding: 0 0.08em 0.1em;
     color: #eeece5;
     font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-    font-size: clamp(3.65rem, 15.5vw, 16rem);
+    width: 100%;
+    max-width: 100%;
+    font-size: clamp(2.5rem, 12.7vw, 12.8rem);
     font-weight: 400;
     letter-spacing: -0.07em;
     line-height: 0.78;
+    white-space: nowrap;
     text-align: center;
     text-shadow: 0 0.04em 0.24em rgba(0, 0, 0, 0.38);
-    transform: translateY(-0.04em);
   }
 
-  @keyframes drift-blue {
+  .tagline {
+    max-width: 30rem;
+    margin: clamp(1.2rem, 2.5vw, 2rem) 0 0;
+    color: #eeece5;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(1.8rem, 3.3vw, 3.1rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+  }
+
+  .credit {
+    max-width: 35rem;
+    margin: clamp(1.15rem, 2.4vw, 1.8rem) 0 0;
+    color: rgba(238, 236, 229, 0.78);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 0.96rem);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.48;
+  }
+
+  .pricing {
+    display: grid;
+    width: min(100%, 39rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: clamp(1.85rem, 3.6vw, 2.75rem);
+    border-top: 1px solid rgba(238, 236, 229, 0.34);
+    border-bottom: 1px solid rgba(238, 236, 229, 0.18);
+  }
+
+  .price {
+    display: flex;
+    min-height: 5.25rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(1.2rem, 2.25vw, 1.7rem);
+    letter-spacing: -0.025em;
+    line-height: 0.96;
+  }
+
+  .price--original {
+    color: rgba(238, 236, 229, 0.46);
+  }
+
+  .price--offer {
+    border-left: 1px solid rgba(238, 236, 229, 0.25);
+    color: #eeece5;
+  }
+
+  .price--offer strong {
+    margin-left: 0.22em;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  .request-access {
+    display: inline-flex;
+    min-height: 3.15rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: clamp(1.2rem, 2.4vw, 1.7rem);
+    padding: 0.76rem 1.35rem;
+    border: 1px solid rgba(238, 236, 229, 0.7);
+    background: rgba(3, 3, 8, 0.2);
+    color: #eeece5;
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+
+  .request-access:hover {
+    border-color: #eeece5;
+    background: #eeece5;
+    color: #030308;
+  }
+
+  .request-access:focus-visible {
+    outline: 2px solid #eeece5;
+    outline-offset: 4px;
+  }
+
+  @keyframes aura-shift {
     from {
-      transform: translate3d(-10%, -4%, 0) scale(0.92);
+      background-position: 0% 0%, 100% 100%, 50% 100%, 50% 50%;
+      background-size: 112% 112%, 118% 118%, 108% 108%, 100% 100%;
     }
 
     to {
-      transform: translate3d(18%, 16%, 0) scale(1.18);
-    }
-  }
-
-  @keyframes drift-violet {
-    from {
-      transform: translate3d(10%, 12%, 0) scale(1.1);
-    }
-
-    to {
-      transform: translate3d(-20%, -11%, 0) scale(0.88);
-    }
-  }
-
-  @keyframes drift-red {
-    from {
-      transform: translate3d(12%, -15%, 0) scale(0.84);
-      opacity: 0.31;
-    }
-
-    to {
-      transform: translate3d(-13%, 20%, 0) scale(1.15);
-      opacity: 0.58;
+      background-position: 16% 12%, 83% 86%, 44% 84%, 50% 50%;
+      background-size: 128% 128%, 109% 109%, 121% 121%, 100% 100%;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .aura span {
+    .cover {
       animation: none;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .broadcast {
+      padding-right: 1.15rem;
+      padding-left: 1.15rem;
+    }
+
+    .pricing {
+      grid-template-columns: 1fr;
+    }
+
+    .price {
+      min-height: auto;
+      padding: 0.92rem 1rem;
+    }
+
+    .price--original {
+      border-bottom: 1px solid rgba(238, 236, 229, 0.16);
+    }
+
+    .price--offer {
+      border-left: 0;
     }
   }
 </style>
