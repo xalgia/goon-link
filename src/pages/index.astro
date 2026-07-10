@@ -1,6 +1,13 @@
 ---
 const umamiWebsiteId = "ba6671bd-15b7-437a-895e-e95e6845b731";
 const enableUmami = import.meta.env.PROD;
+const siteCopy = {
+  title: "GOON LINK",
+  tagline: "Starlink for Gooners.",
+  credit: "built by ‘the elon musk for gooners’, and the creator of the wank bank app, u/keyraise.",
+  privacy:
+    "No ads, no tracking, no data collection. Secure and E2EE by default, built upon a managed private Nostr relay with NIP-44 encryption and NIP-59 gift-wrapped delivery.",
+};
 ---
 
 <!doctype html>
@@ -31,7 +38,7 @@ const enableUmami = import.meta.env.PROD;
   </head>
   <body>
     <main>
-      <section class="cover" aria-labelledby="site-title">
+      <section class="cover cover--desktop" aria-labelledby="site-title-desktop">
         <section class="broadcast">
           <div class="brand-lockup">
             <img
@@ -41,17 +48,12 @@ const enableUmami = import.meta.env.PROD;
               height="1371"
               alt="Goon Link"
             />
-            <h1 id="site-title">GOON LINK</h1>
-            <p class="tagline">Starlink for Gooners.</p>
+            <h1 id="site-title-desktop">{siteCopy.title}</h1>
+            <p class="tagline">{siteCopy.tagline}</p>
           </div>
           <div class="offer-stack">
-            <p class="credit">
-              built by ‘the elon musk for gooners’, and the creator of the wank bank app, u/keyraise.
-            </p>
-            <p class="privacy-promise">
-              No ads, no behavioural tracking, no data sales. Secure and E2EE by default, built
-              upon a managed private Nostr relay with NIP-44 encryption and NIP-59 gift-wrapped delivery.
-            </p>
+            <p class="credit">{siteCopy.credit}</p>
+            <p class="privacy-promise">{siteCopy.privacy}</p>
             <p class="platforms">Android <span aria-hidden="true">·</span> Windows <span aria-hidden="true">·</span> Linux <span aria-hidden="true">·</span> Web</p>
             <div class="pricing" aria-label="Lifetime pricing">
               <p class="price price--original"><s>25 USD lifetime.</s></p>
@@ -59,6 +61,43 @@ const enableUmami = import.meta.env.PROD;
             </div>
             <a
               class="request-access"
+              href="mailto:invites@twba.mailer.me"
+              aria-label="Request access by email"
+            >
+              <span>Request access</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </section>
+      </section>
+
+      <section class="cover cover--mobile" aria-labelledby="site-title-mobile">
+        <section class="mobile-broadcast">
+          <div class="mobile-brand-lockup">
+            <img
+              class="mobile-mark"
+              src="/images/goon-link-mark.png"
+              width="1168"
+              height="1371"
+              alt="Goon Link"
+            />
+            <h1 class="mobile-title" id="site-title-mobile">{siteCopy.title}</h1>
+            <p class="mobile-tagline">{siteCopy.tagline}</p>
+          </div>
+
+          <div class="mobile-copy">
+            <p class="mobile-credit">{siteCopy.credit}</p>
+            <p class="mobile-privacy-promise">{siteCopy.privacy}</p>
+            <p class="mobile-platforms">Android <span aria-hidden="true">·</span> Windows <span aria-hidden="true">·</span> Linux <span aria-hidden="true">·</span> Web</p>
+          </div>
+
+          <div class="mobile-action">
+            <div class="mobile-pricing" aria-label="Lifetime pricing">
+              <p class="mobile-price mobile-price--original"><s>25 USD lifetime.</s></p>
+              <p class="mobile-price mobile-price--offer"><span>temporarily</span><strong>5 USD Lifetime.</strong></p>
+            </div>
+            <a
+              class="mobile-request-access"
               href="mailto:invites@twba.mailer.me"
               aria-label="Request access by email"
             >
@@ -109,6 +148,10 @@ const enableUmami = import.meta.env.PROD;
     background-repeat: no-repeat;
     background-size: 112% 112%, 118% 118%, 108% 108%, 100% 100%;
     animation: aura-shift 32s ease-in-out infinite alternate;
+  }
+
+  .cover--mobile {
+    display: none;
   }
 
   .broadcast {
@@ -174,7 +217,7 @@ const enableUmami = import.meta.env.PROD;
     margin: clamp(1.15rem, 2.4vw, 1.8rem) 0 0;
     color: rgba(238, 236, 229, 0.78);
     font-family: "Instrument Sans", system-ui, sans-serif;
-    font-size: clamp(0.49rem, 1.2vw, 0.96rem);
+    font-size: clamp(0.86rem, 1.15vw, 1rem);
     font-weight: 400;
     letter-spacing: 0;
     line-height: 1.2;
@@ -182,11 +225,11 @@ const enableUmami = import.meta.env.PROD;
   }
 
   .privacy-promise {
-    max-width: 43rem;
+    max-width: 46rem;
     margin: clamp(1rem, 2vw, 1.4rem) 0 0;
     color: rgba(238, 236, 229, 0.68);
     font-family: "Instrument Sans", system-ui, sans-serif;
-    font-size: clamp(0.66rem, 1.08vw, 0.88rem);
+    font-size: clamp(1rem, 1.25vw, 1.1rem);
     font-weight: 400;
     letter-spacing: 0.002em;
     line-height: 1.46;
@@ -196,7 +239,7 @@ const enableUmami = import.meta.env.PROD;
     margin: clamp(0.9rem, 1.8vw, 1.2rem) 0 0;
     color: rgba(238, 236, 229, 0.58);
     font-family: "Instrument Sans", system-ui, sans-serif;
-    font-size: clamp(0.58rem, 0.9vw, 0.76rem);
+    font-size: clamp(0.7rem, 0.9vw, 0.82rem);
     font-weight: 500;
     letter-spacing: 0.055em;
     line-height: 1;
@@ -283,6 +326,186 @@ const enableUmami = import.meta.env.PROD;
     outline: none;
   }
 
+  .mobile-broadcast {
+    display: flex;
+    width: min(100%, 33rem);
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: clamp(1.8rem, 7svh, 4.75rem) clamp(1.2rem, 6vw, 2.4rem);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .mobile-brand-lockup,
+  .mobile-copy,
+  .mobile-action {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-mark {
+    width: clamp(4.65rem, 21vw, 6.15rem);
+    height: auto;
+    margin-bottom: clamp(0.9rem, 2.7svh, 1.35rem);
+    filter: drop-shadow(0 0.7rem 1.5rem rgba(0, 0, 0, 0.42));
+  }
+
+  .mobile-title {
+    width: 100%;
+    margin: 0;
+    padding: 0 0.08em 0.1em;
+    color: #eeece5;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(2.7rem, 13.25vw, 4.35rem);
+    font-weight: 400;
+    letter-spacing: -0.07em;
+    line-height: 0.78;
+    text-align: center;
+    text-shadow: 0 0.04em 0.24em rgba(0, 0, 0, 0.38);
+    white-space: nowrap;
+  }
+
+  .mobile-tagline {
+    margin: clamp(0.78rem, 2.15svh, 1.2rem) 0 0;
+    color: #eeece5;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(1.9rem, 8.1vw, 2.4rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+
+  .mobile-copy {
+    width: min(100%, 28rem);
+    margin-top: clamp(1.45rem, 4.4svh, 2.5rem);
+  }
+
+  .mobile-credit {
+    margin: 0;
+    color: rgba(238, 236, 229, 0.8);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: clamp(0.92rem, 4vw, 1.05rem);
+    font-weight: 400;
+    line-height: 1.35;
+  }
+
+  .mobile-privacy-promise {
+    width: min(100%, 27rem);
+    margin: clamp(0.85rem, 2.15svh, 1.15rem) 0 0;
+    color: rgba(238, 236, 229, 0.74);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: clamp(1.08rem, 4.6vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 0.002em;
+    line-height: 1.48;
+    text-align: left;
+  }
+
+  .mobile-platforms {
+    margin: clamp(0.9rem, 2.25svh, 1.15rem) 0 0;
+    color: rgba(238, 236, 229, 0.62);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: clamp(0.8rem, 3.6vw, 0.98rem);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .mobile-platforms span {
+    display: inline-block;
+    margin: 0 0.28em;
+    color: rgba(238, 236, 229, 0.32);
+  }
+
+  .mobile-action {
+    width: min(100%, 29rem);
+    margin-top: clamp(1.45rem, 4.5svh, 2.45rem);
+  }
+
+  .mobile-pricing {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 1px solid rgba(238, 236, 229, 0.36);
+    border-bottom: 1px solid rgba(238, 236, 229, 0.2);
+  }
+
+  .mobile-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0.55rem 0.75rem;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+
+  .mobile-price--original {
+    color: rgba(238, 236, 229, 0.62);
+    font-size: clamp(1.35rem, 6vw, 1.65rem);
+  }
+
+  .mobile-price--offer {
+    flex-direction: column;
+    gap: 0.24rem;
+    color: rgba(238, 236, 229, 0.86);
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(1.3rem, 5.8vw, 1.6rem);
+    letter-spacing: -0.025em;
+  }
+
+  .mobile-price--offer strong {
+    color: #eeece5;
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(2rem, 8.5vw, 2.55rem);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+  }
+
+  .mobile-request-access {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: clamp(0.9rem, 2.3svh, 1.2rem);
+    padding: 0.64rem 1.2rem 0.68rem;
+    border: 1px solid rgba(232, 230, 224, 0.3);
+    border-radius: 999px;
+    background: rgba(232, 230, 224, 0.045);
+    color: rgba(232, 230, 224, 0.96);
+    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    font-size: clamp(1.34rem, 6.3vw, 1.62rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+  }
+
+  .mobile-request-access:hover {
+    border-color: rgba(238, 236, 229, 0.62);
+    background: rgba(238, 236, 229, 0.1);
+    color: #fff;
+  }
+
+  .mobile-request-access:focus-visible {
+    border-color: rgba(238, 236, 229, 0.72);
+    background: rgba(238, 236, 229, 0.1);
+    color: #fff;
+    outline: none;
+  }
+
   @keyframes aura-shift {
     from {
       background-position: 0% 0%, 100% 100%, 50% 100%, 50% 50%;
@@ -311,6 +534,124 @@ const enableUmami = import.meta.env.PROD;
       min-height: 4rem;
       padding: 0.74rem 0.55rem;
       font-size: clamp(0.98rem, 4.8vw, 1.2rem);
+    }
+  }
+
+  @media (max-width: 51.25rem), (orientation: landscape) and (max-height: 34rem) and (max-width: 60rem) {
+    .cover--desktop {
+      display: none;
+    }
+
+    .cover--mobile {
+      display: block;
+    }
+  }
+
+  @media (max-height: 40rem) and (orientation: portrait) and (max-width: 51.25rem) {
+    .mobile-broadcast {
+      padding-top: 1.35rem;
+      padding-bottom: 1.35rem;
+    }
+
+    .mobile-mark {
+      width: 4.45rem;
+      margin-bottom: 0.78rem;
+    }
+
+    .mobile-copy {
+      margin-top: 1.2rem;
+    }
+
+    .mobile-action {
+      margin-top: 1.2rem;
+    }
+  }
+
+  @media (orientation: landscape) and (max-height: 34rem) and (max-width: 60rem) {
+    .mobile-broadcast {
+      display: grid;
+      width: min(100%, 60rem);
+      grid-template-columns: minmax(12rem, 0.78fr) minmax(18rem, 1.3fr);
+      grid-template-areas:
+        "brand copy"
+        "brand action";
+      align-content: center;
+      column-gap: clamp(1.2rem, 4vw, 3rem);
+      row-gap: 0.58rem;
+      padding: 1.05rem clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .mobile-brand-lockup {
+      grid-area: brand;
+    }
+
+    .mobile-copy {
+      width: 100%;
+      grid-area: copy;
+      margin-top: 0;
+    }
+
+    .mobile-action {
+      width: 100%;
+      grid-area: action;
+      margin-top: 0;
+    }
+
+    .mobile-mark {
+      width: clamp(4.2rem, 17vh, 5.2rem);
+      margin-bottom: 0.55rem;
+    }
+
+    .mobile-title {
+      font-size: clamp(2.7rem, 6.25vw, 4.5rem);
+    }
+
+    .mobile-tagline {
+      margin-top: 0.65rem;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+    }
+
+    .mobile-credit {
+      font-size: clamp(0.86rem, 1.65vw, 0.98rem);
+      line-height: 1.3;
+    }
+
+    .mobile-privacy-promise {
+      width: 100%;
+      margin-top: 0.56rem;
+      font-size: clamp(0.94rem, 1.8vw, 1.08rem);
+      line-height: 1.36;
+      text-align: center;
+    }
+
+    .mobile-platforms {
+      margin-top: 0.55rem;
+      font-size: clamp(0.74rem, 1.4vw, 0.88rem);
+    }
+
+    .mobile-price {
+      padding: 0.35rem 0.6rem;
+    }
+
+    .mobile-price--original {
+      font-size: clamp(1.2rem, 2.6vw, 1.45rem);
+    }
+
+    .mobile-price--offer {
+      flex-direction: column;
+      gap: 0.08rem;
+      font-size: clamp(1.05rem, 2.35vw, 1.3rem);
+    }
+
+    .mobile-price--offer strong {
+      font-size: clamp(1.55rem, 3.4vw, 1.95rem);
+    }
+
+    .mobile-request-access {
+      min-height: 2.55rem;
+      margin-top: 0.58rem;
+      padding: 0.45rem 0.95rem 0.5rem;
+      font-size: clamp(1rem, 1.9vw, 1.25rem);
     }
   }
 
@@ -344,18 +685,19 @@ const enableUmami = import.meta.env.PROD;
 
     .credit {
       margin-top: 0;
-      font-size: clamp(0.48rem, 1.1vw, 0.67rem);
+      font-size: clamp(0.88rem, 1.1vw, 1rem);
+      white-space: normal;
     }
 
     .privacy-promise {
       margin-top: 0.68rem;
-      font-size: clamp(0.56rem, 1.12vw, 0.7rem);
-      line-height: 1.32;
+      font-size: clamp(0.88rem, 1.25vw, 1.04rem);
+      line-height: 1.38;
     }
 
     .platforms {
       margin-top: 0.62rem;
-      font-size: clamp(0.5rem, 0.9vw, 0.63rem);
+      font-size: clamp(0.62rem, 0.9vw, 0.74rem);
     }
 
     .pricing {
