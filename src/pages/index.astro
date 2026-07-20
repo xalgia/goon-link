@@ -4,7 +4,9 @@ const enableUmami = import.meta.env.PROD;
 const siteCopy = {
   title: "GOON LINK",
   tagline: "Starlink for Gooners.",
-  credit: "built by ‘the elon musk for gooners’, and the creator of the wank bank app, u/keyraise.",
+  credit: "Designed by the creator of the wank bank app.",
+  description:
+    "Goonlink is designed to provide users with a useful way to share multiple images and gifs, and it allows image recipients to go through, organise, and re-share/broadcast recieved images in a streamlined way.",
   privacy:
     "No ads, no tracking, no data collection. Secure and E2EE by default, built upon a managed private Nostr relay with NIP-44 encryption and NIP-59 gift-wrapped delivery.",
 };
@@ -53,12 +55,9 @@ const siteCopy = {
           </div>
           <div class="offer-stack">
             <p class="credit">{siteCopy.credit}</p>
+            <p class="description">{siteCopy.description}</p>
             <p class="privacy-promise">{siteCopy.privacy}</p>
             <p class="platforms">Android <span aria-hidden="true">·</span> Windows <span aria-hidden="true">·</span> Linux</p>
-            <div class="pricing" aria-label="Lifetime pricing">
-              <p class="price price--original"><s>25 USD lifetime.</s></p>
-              <p class="price price--offer">temporarily <strong>5 USD Lifetime.</strong></p>
-            </div>
             <a
               class="request-access"
               href="mailto:invites@twba.mailer.me"
@@ -87,15 +86,12 @@ const siteCopy = {
 
           <div class="mobile-copy">
             <p class="mobile-credit">{siteCopy.credit}</p>
+            <p class="mobile-description">{siteCopy.description}</p>
             <p class="mobile-privacy-promise">{siteCopy.privacy}</p>
             <p class="mobile-platforms">Android <span aria-hidden="true">·</span> Windows <span aria-hidden="true">·</span> Linux</p>
           </div>
 
           <div class="mobile-action">
-            <div class="mobile-pricing" aria-label="Lifetime pricing">
-              <p class="mobile-price mobile-price--original"><s>25 USD lifetime.</s></p>
-              <p class="mobile-price mobile-price--offer"><span>temporarily</span><strong>5 USD Lifetime.</strong></p>
-            </div>
             <a
               class="mobile-request-access"
               href="mailto:invites@twba.mailer.me"
@@ -235,6 +231,17 @@ const siteCopy = {
     line-height: 1.46;
   }
 
+  .description {
+    max-width: 48rem;
+    margin: clamp(1rem, 2vw, 1.4rem) 0 0;
+    color: rgba(238, 236, 229, 0.82);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 0.002em;
+    line-height: 1.46;
+  }
+
   .platforms {
     margin: clamp(0.9rem, 1.8vw, 1.2rem) 0 0;
     color: rgba(238, 236, 229, 0.58);
@@ -251,43 +258,6 @@ const siteCopy = {
     display: inline-block;
     margin: 0 0.36em;
     color: rgba(238, 236, 229, 0.3);
-  }
-
-  .pricing {
-    display: grid;
-    width: min(100%, 39rem);
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: clamp(1.85rem, 3.6vw, 2.75rem);
-    border-top: 1px solid rgba(238, 236, 229, 0.34);
-    border-bottom: 1px solid rgba(238, 236, 229, 0.18);
-  }
-
-  .price {
-    display: flex;
-    min-height: 5.25rem;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 1rem 1.25rem;
-    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-    font-size: clamp(1.2rem, 2.25vw, 1.7rem);
-    letter-spacing: -0.025em;
-    line-height: 0.96;
-  }
-
-  .price--original {
-    color: rgba(238, 236, 229, 0.46);
-  }
-
-  .price--offer {
-    border-left: 1px solid rgba(238, 236, 229, 0.25);
-    color: #eeece5;
-  }
-
-  .price--offer strong {
-    margin-left: 0.22em;
-    font-weight: 400;
-    white-space: nowrap;
   }
 
   .request-access {
@@ -406,6 +376,18 @@ const siteCopy = {
     text-align: left;
   }
 
+  .mobile-description {
+    width: min(100%, 27rem);
+    margin: clamp(0.85rem, 2.15svh, 1.15rem) 0 0;
+    color: rgba(238, 236, 229, 0.86);
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    font-size: clamp(1.08rem, 4.6vw, 1.2rem);
+    font-weight: 400;
+    letter-spacing: 0.002em;
+    line-height: 1.48;
+    text-align: left;
+  }
+
   .mobile-platforms {
     margin: clamp(0.9rem, 2.25svh, 1.15rem) 0 0;
     color: rgba(238, 236, 229, 0.62);
@@ -426,48 +408,6 @@ const siteCopy = {
   .mobile-action {
     width: min(100%, 29rem);
     margin-top: clamp(1.45rem, 4.5svh, 2.45rem);
-  }
-
-  .mobile-pricing {
-    display: grid;
-    width: 100%;
-    grid-template-columns: minmax(0, 1fr);
-    border-top: 1px solid rgba(238, 236, 229, 0.36);
-    border-bottom: 1px solid rgba(238, 236, 229, 0.2);
-  }
-
-  .mobile-price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0.55rem 0.75rem;
-    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-    letter-spacing: -0.025em;
-    line-height: 1;
-  }
-
-  .mobile-price--original {
-    color: rgba(238, 236, 229, 0.62);
-    font-size: clamp(1.35rem, 6vw, 1.65rem);
-  }
-
-  .mobile-price--offer {
-    flex-direction: column;
-    gap: 0.24rem;
-    color: rgba(238, 236, 229, 0.86);
-    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-    font-size: clamp(1.3rem, 5.8vw, 1.6rem);
-    letter-spacing: -0.025em;
-  }
-
-  .mobile-price--offer strong {
-    color: #eeece5;
-    font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-    font-size: clamp(2rem, 8.5vw, 2.55rem);
-    font-weight: 400;
-    letter-spacing: -0.025em;
-    white-space: nowrap;
   }
 
   .mobile-request-access {
@@ -530,11 +470,6 @@ const siteCopy = {
       padding-left: 1.15rem;
     }
 
-    .price {
-      min-height: 4rem;
-      padding: 0.74rem 0.55rem;
-      font-size: clamp(0.98rem, 4.8vw, 1.2rem);
-    }
   }
 
   @media (max-width: 51.25rem), (orientation: landscape) and (max-height: 34rem) and (max-width: 60rem) {
@@ -629,24 +564,6 @@ const siteCopy = {
       font-size: clamp(0.74rem, 1.4vw, 0.88rem);
     }
 
-    .mobile-price {
-      padding: 0.35rem 0.6rem;
-    }
-
-    .mobile-price--original {
-      font-size: clamp(1.2rem, 2.6vw, 1.45rem);
-    }
-
-    .mobile-price--offer {
-      flex-direction: column;
-      gap: 0.08rem;
-      font-size: clamp(1.05rem, 2.35vw, 1.3rem);
-    }
-
-    .mobile-price--offer strong {
-      font-size: clamp(1.55rem, 3.4vw, 1.95rem);
-    }
-
     .mobile-request-access {
       min-height: 2.55rem;
       margin-top: 0.58rem;
@@ -700,17 +617,6 @@ const siteCopy = {
       font-size: clamp(0.62rem, 0.9vw, 0.74rem);
     }
 
-    .pricing {
-      width: min(100%, 34rem);
-      margin-top: 0.85rem;
-    }
-
-    .price {
-      min-height: 2.75rem;
-      padding: 0.6rem 0.7rem;
-      font-size: clamp(0.98rem, 2vw, 1.25rem);
-    }
-
     .request-access {
       min-height: 2.55rem;
       margin-top: 0.7rem;
@@ -745,10 +651,6 @@ const siteCopy = {
 
     .platforms {
       margin-top: 0.64rem;
-    }
-
-    .pricing {
-      margin-top: 0.9rem;
     }
 
     .request-access {
